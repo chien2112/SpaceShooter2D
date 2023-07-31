@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Rockets : Weapon
@@ -10,37 +8,33 @@ public class Rockets : Weapon
     [SerializeField] Transform shootingPoint5;
     [SerializeField] Transform shootingPoint6;
 
-    public void Shoot(int index)
+    protected override void Awake()
     {
-        var go = projectile.GetObjectType(projectile);
+        base.Awake();
+    }
+    public void Shoot(int index)
+    {         
         switch (index)
         {
             case 1:
-                go.gameObject.SetActive(true);
-                go.transform.position = shootingPoint.position;
+                ObjectPooling.GetGameObjectFromPool(weaponData.bulletName, shootingPoint.position, weaponData.path);
                 break;
             case 2:
-                go.gameObject.SetActive(true);
-                go.transform.position = shootingPoint2.position;
+                ObjectPooling.GetGameObjectFromPool(weaponData.bulletName, shootingPoint2.position, weaponData.path);
                 break;
             case 3:
-                go.gameObject.SetActive(true);
-                go.transform.position = shootingPoint3.position;
+                ObjectPooling.GetGameObjectFromPool(weaponData.bulletName, shootingPoint3.position, weaponData.path);
                 break;
             case 4:
-                go.gameObject.SetActive(true);
-                go.transform.position = shootingPoint4.position;
+                ObjectPooling.GetGameObjectFromPool(weaponData.bulletName, shootingPoint4.position, weaponData.path);
                 break;
             case 5:
-                go.gameObject.SetActive(true);
-                go.transform.position = shootingPoint5.position;
+                ObjectPooling.GetGameObjectFromPool(weaponData.bulletName, shootingPoint5.position, weaponData.path);
                 break;
             case 6:
-                go.gameObject.SetActive(true);
-                go.transform.position = shootingPoint6.position;
+                ObjectPooling.GetGameObjectFromPool(weaponData.bulletName, shootingPoint6.position, weaponData.path);
                 break;
         }
-
-
+        SoundManager.Instance.PlayClip(shootingClip, audioMixerGroup);
     }
 }

@@ -121,11 +121,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: 
   damage: 0
-  fireRate: 1
-  canShoot: 0
-  projectile: {fileID: 9003016706467524524, guid: 240363a3f653ba04a9eefd7617d234c2, type: 3}
+  animSpeed: 1
+  projectile: {fileID: -7712500201188687755, guid: 240363a3f653ba04a9eefd7617d234c2, type: 3}
   shootingPoint: {fileID: 5728796506720863909}
-  anim: {fileID: 0}
 --- !u!1 &5255327039659455949
 GameObject:
   m_ObjectHideFlags: 0

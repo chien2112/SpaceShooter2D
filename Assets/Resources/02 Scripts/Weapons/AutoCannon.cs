@@ -1,25 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AutoCannon : Weapon
 {
     [SerializeField] Transform shootingPoint2;
 
+
+    protected override void Awake()
+    {
+        base.Awake();
+    }
     public void Shoot(int index)
     {
-        var go = projectile.GetObjectType(projectile);
-
         if(index == 1)
         {
-            go.gameObject.SetActive(true);
-            go.transform.position = shootingPoint.position;
+            ObjectPooling.GetGameObjectFromPool(weaponData.bulletName, shootingPoint.position, weaponData.path);
         }
         else
         {
-            go.gameObject.SetActive(true);
-            go.transform.position = shootingPoint2.position;
+            ObjectPooling.GetGameObjectFromPool(weaponData.bulletName, shootingPoint2.position, weaponData.path);
         }
-        
+        SoundManager.Instance.PlayClip(shootingClip, audioMixerGroup);
     }
 }

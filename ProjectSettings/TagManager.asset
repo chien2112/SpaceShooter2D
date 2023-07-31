@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Music
+  - DeadZone
+  - Projectile
+  - EnemyBullet
+  - SoundManager
+  - LevelManager
+  - PanelResult
+  - Item
   layers:
   - Default
   - TransparentFX

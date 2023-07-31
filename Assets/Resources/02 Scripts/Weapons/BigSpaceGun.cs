@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class BigSpaceGun : Weapon
 {
-    public void Shoot(int index)
+    protected override void Awake()
     {
-        var go = projectile.GetObjectType(projectile);
-        go.gameObject.SetActive(true);
-        go.transform.position = shootingPoint.position;
+        base.Awake();
+    }
+    public void Shoot()
+    {
+        ObjectPooling.GetGameObjectFromPool(weaponData.bulletName, shootingPoint.position, weaponData.path);
+        SoundManager.Instance.PlayClip(shootingClip, audioMixerGroup);
     }
 }

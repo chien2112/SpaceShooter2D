@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 404813d11c6a66d4a91781065a3705e1, type: 3}
+  m_Name: Blue1
+  m_EditorClassIdentifier: 
+  health: 140
+  speed: 5
+  damage: 11
+  flySpeed: 2
+  path: 01 Prefabs/Enemy/Blue1
+  enemyName: Blue 1
+  dieClip: {fileID: 8300000, guid: 45e3974b037513444a36a739cd23f811, type: 3}
+  audioMixerGroup: {fileID: 4339752897506746412, guid: 781d07d6790b721458e3a4411080fba4, type: 2}
+  phase2Sprite: {fileID: -1408001096, guid: 7929e43faf14ec54a9d92fe3dc8133cd, type: 3}
+  bulletPrefab: {fileID: 8968289870153680284, guid: 697177ffa17cad1428391a7279b27a57, type: 3}
+  droppedItems:
+  - {fileID: 3375935177350047449, guid: 18d07809cdca3534789c30a2d46b075a, type: 3}
+  - {fileID: 8168898732101949309, guid: a14eda0a627e09147b7396efedfc9fab, type: 3}

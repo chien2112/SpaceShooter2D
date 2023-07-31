@@ -1,15 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
-public abstract class Projectile : ObjectPooling<Projectile>
+public abstract class Projectile : MonoBehaviour
 {
-    [SerializeField] protected float damage;  
-    [SerializeField] protected float speed;
+    protected float damage;
+    protected float speed;
+    [SerializeField] protected SOWeapon weaponData;
     protected Rigidbody2D rb;
 
-    public abstract void Awake();
-    public abstract void OnEnable();
-    public abstract void OnTriggerEnter2D(Collider2D collision);
+    [SerializeField] protected AudioClip explosionClip;
+    [SerializeField] protected AudioMixerGroup audioMixerGroup;
+    protected virtual void Awake()
+    {
+        damage = weaponData.damage;
+        speed = weaponData.bulletSpeed;
+    }
     public abstract void SelfDestruct();
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            SoundManager.Instance.PlayClip(explosionClip, audioMixerGroup);
+            SelfDestruct();
+            collision.GetComponent<EnemyBase>().TakeDamage(damage);
+        }
+        if (collision.CompareTag("DeadZone"))
+        {
+            SelfDestruct();
+        }
+    }
+
 }

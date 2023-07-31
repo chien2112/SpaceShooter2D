@@ -105,9 +105,9 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 5
 --- !u!95 &7003573959463706088
 Animator:
@@ -139,7 +139,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -157,6 +157,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65da8726e4720044c8c1aa3088b52172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  rb: {fileID: 0}
-  speed: 5
+  weaponData: {fileID: 11400000, guid: 6f0f03fa8676f5441b5a65cf97329d87, type: 2}
+  explosionClip: {fileID: 8300000, guid: a60c463e81ba0344f9cb704ae2fa45d8, type: 3}
+  audioMixerGroup: {fileID: 4339752897506746412, guid: 781d07d6790b721458e3a4411080fba4, type: 2}

@@ -151,13 +151,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eacaaeb71c9bbd449751ed832fe9938, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: 
-  damage: 0
-  fireRate: 0
-  canShoot: 0
-  projectile: {fileID: 9003016706467524524, guid: c3d0d26d9f595b54d9a61c9529bb9892, type: 3}
-  shootingPoint: {fileID: 3557276950163874552}
-  anim: {fileID: 0}
+  shootingClip: {fileID: 8300000, guid: 3ec11644b1bd36a4d98c40e55ab6b14d, type: 3}
+  audioMixerGroup: {fileID: 4339752897506746412, guid: 781d07d6790b721458e3a4411080fba4, type: 2}
+  isUnlocked: 0
+  weaponData: {fileID: 11400000, guid: db682e2521ebd044ab66662895b00803, type: 2}
+  shootingPoint: {fileID: 0}
   shootingPoint2: {fileID: 2748508709234117840}
 --- !u!1 &5496429312764507032
 GameObject:

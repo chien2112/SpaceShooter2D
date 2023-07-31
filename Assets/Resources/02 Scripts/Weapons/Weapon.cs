@@ -1,28 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+using System;
 using UnityEngine;
+using UnityEngine.Audio;
 
+[Serializable]
 public abstract class Weapon : MonoBehaviour
 {
-    [SerializeField] protected string weaponName;
-    [SerializeField] protected float damage;
-    [SerializeField] protected float animSpeed;
-    [SerializeField] protected Projectile projectile;
-    protected Animator anim;
+    protected float animSpeed;
+    [SerializeField] protected AudioClip shootingClip;
+    [SerializeField] protected AudioMixerGroup audioMixerGroup;
+    [Space(10)]
+    [SerializeField] protected bool isUnlocked;
+    [SerializeField] protected SOWeapon weaponData;
+    [Space(10)]
     [SerializeField] protected Transform shootingPoint;
 
-    public virtual void Awake()
+    [SerializeField] protected Animator anim;
+
+    protected virtual void Awake()
     {
+        animSpeed = weaponData.fireRate;
         anim = GetComponent<Animator>();
-        weaponName = gameObject.name;
+        SetFireRate(animSpeed);
     }
 
     public void DoShoot()
     {
         anim.SetBool("isShooting", true);
     }
-    public void SetFireRate(int speed)
+    public void SetFireRate(float speed)
     {
         animSpeed = speed;
         anim.speed = animSpeed;
@@ -35,4 +40,5 @@ public abstract class Weapon : MonoBehaviour
     public void StartAnim()
     {       
     }
+    
 }

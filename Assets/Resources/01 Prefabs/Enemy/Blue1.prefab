@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5124433048914173998}
   - component: {fileID: 5124433048914173999}
-  - component: {fileID: 5124433048914173996}
   - component: {fileID: -3805667012290804525}
+  - component: {fileID: -3222041698419925075}
+  - component: {fileID: 1619153139}
+  - component: {fileID: -3918639391248786342}
   m_Layer: 0
   m_Name: Blue1
   m_TagString: Enemy
@@ -86,21 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5124433048914173996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5124433048914173997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4773d761e8a51da41b95605517e67a0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 100
-  currentState: 0
-  enemySpeed: 5
 --- !u!61 &-3805667012290804525
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -127,3 +114,52 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.44958943, y: 0.42036402}
   m_EdgeRadius: 0
+--- !u!114 &-3222041698419925075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5124433048914173997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e32ff5d8cea721649ae640d984ded967, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpeed: 0
+  enemyDamage: 0
+  enemyBulletPrefab: {fileID: 0}
+  isDead: 0
+  phase2Sprite: {fileID: 0}
+  enemyName: 
+  dieClip: {fileID: 0}
+  audioMixerGroup: {fileID: 0}
+  soEnemy: {fileID: 11400000, guid: 10436473b6c708f4ea7066710a126447, type: 2}
+--- !u!114 &1619153139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5124433048914173997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b0b5ee12ba6d74fab08a364befd3fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isRepeat: 1
+--- !u!114 &-3918639391248786342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5124433048914173997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52f0306d4b8d69146b5717befa6c3ac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  enemyBase: {fileID: -3222041698419925075}
+  flyPathAgent: {fileID: 1619153139}
