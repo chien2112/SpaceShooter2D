@@ -11,7 +11,6 @@ public class ButtonUpgrade : ButtonBase
     protected override void ClickButton()
     {
         base.ClickButton();
-        CursorManager.Instance.CursorVisible(true);
         _panel.SetActive(true);
         SetMusic();
         GameStateManager.Instance.SetState(_state);

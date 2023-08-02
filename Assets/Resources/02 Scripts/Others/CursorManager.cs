@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class CursorManager : Singleton<CursorManager>
 {
-    [SerializeField] private Vector2 hotspot;
+    [SerializeField] private Vector3 hotspot;
     [SerializeField] private Sprite cursor;
     [SerializeField] private Sprite cursorClick;
     private SpriteRenderer spriteRenderer;
-    [SerializeField] private bool isVisible;
     private void Awake()
     {
         var result = FindObjectsOfType<CursorManager>();
@@ -22,34 +21,27 @@ public class CursorManager : Singleton<CursorManager>
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        isVisible = false;
-        spriteRenderer.sprite = null;
+        spriteRenderer.sprite = cursor;
         Cursor.visible = false;
-    }
-    public void CursorVisible(bool visible)
-    {
-        isVisible = visible;
-        if (isVisible)
-        {
-            spriteRenderer.sprite = cursor;
-        }
-        else
-        {
-            spriteRenderer.sprite = null;
-        }
     }
     private void Update()
     {
-        Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = cursorPos;
-        if (Input.GetMouseButtonDown(0) && isVisible)
+        Vector3 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        cursorPos.z = 0;
+        transform.position = cursorPos - hotspot;
+        if (Input.GetMouseButtonDown(0))
         {
             spriteRenderer.sprite = cursorClick;
         }
-        else if (Input.GetMouseButtonUp(0) && isVisible)
+        else if (Input.GetMouseButtonUp(0))
         {
             spriteRenderer.sprite = cursor;
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(transform.position+hotspot, 0.05f);
     }
     private void OnApplicationFocus(bool focus)
     {

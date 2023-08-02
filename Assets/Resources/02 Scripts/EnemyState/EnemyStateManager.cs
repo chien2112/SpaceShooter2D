@@ -46,6 +46,7 @@ public class EnemyStateManager : MonoBehaviour
         bullet.transform.eulerAngles = new Vector3(0, 0, -90);
         float bulletSpeed = enemyBase.EnemyBulletPrefab.GetComponent<EnemyBullet>().Speed;
         bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(0, -1).normalized * bulletSpeed;
+        Debug.Log(bullet.GetComponent<Rigidbody2D>().velocity);
     }
     public void SpawnBullet2()
     {

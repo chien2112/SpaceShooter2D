@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8968289870153680283}
   - component: {fileID: 8968289870153680281}
   - component: {fileID: 6500622981366320760}
-  - component: {fileID: -6285415326038926737}
+  - component: {fileID: 7142173051998283594}
   m_Layer: 0
   m_Name: EnemyBullet_2
   m_TagString: EnemyBullet
@@ -120,9 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06fb4b45c63601045ab1ddd5adb99166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
   speed: 5.5
---- !u!61 &-6285415326038926737
-BoxCollider2D:
+--- !u!70 &7142173051998283594
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -134,16 +135,6 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.1966517, y: 0.0005018078}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.27, y: 1.23}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.999882, y: 0.22887442}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.008654431, y: 0.0017612568}
+  m_Size: {x: 0.1652098, y: 0.082590245}
+  m_Direction: 1

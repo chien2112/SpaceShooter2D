@@ -18,7 +18,6 @@ public class ButtonLevel : ButtonBase
     {
         SetMusic();
         GameStateManager.Instance.SetState(_state);
-        CursorManager.Instance.CursorVisible(false);
         SpawnLevel();
         SceneManager.LoadScene("Game");
         ObjectPooling.ClearDic();

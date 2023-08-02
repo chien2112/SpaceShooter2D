@@ -4,20 +4,15 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class MixerSettings : MonoBehaviour
+public class AudioSettings : MonoBehaviour
 {
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] Slider sliderMusic;
     [SerializeField] Slider sliderVFX;
     const string mixerMusic = "MusicBackground";
     const string mixerVFX = "Effect";
-    private void Awake()
-    {
-        Debug.Log("volume");
-    }
     private void Start()
-    {
-        
+    {   
         sliderMusic.onValueChanged.AddListener(SetMusicVolume);
         sliderVFX.onValueChanged.AddListener(SetVFXVolume);
 
