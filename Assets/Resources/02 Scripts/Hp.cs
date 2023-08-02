@@ -9,7 +9,6 @@ public class Hp : MonoBehaviour, IPickable
 
     public void Pickup(Player player)
     {
-        Debug.Log("pick");
         player.CurHealth += value;
     }
 

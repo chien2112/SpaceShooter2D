@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour, IPickable
 {
-    public float value;
+    public int value;
     private Rigidbody2D rb;
 
     public void Pickup(Player player)
     {
-        Debug.Log("pick");
+        SavingSystem.Instance.playerData.coin += value;
     }
 
     private void Awake()

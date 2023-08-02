@@ -711,7 +711,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soEnemy: {fileID: 11400000, guid: bce47d3d48337944691e2d340ccddbe2, type: 2}
   firstSpawnTimer: 2
-  spawnTimer: 50
+  spawnTimer: 10
   quantity: 2
   isTheFirstSpawner: 0
   isTheLastSpawner: 1

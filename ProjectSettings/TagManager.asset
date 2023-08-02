@@ -13,6 +13,7 @@ TagManager:
   - LevelManager
   - PanelResult
   - Item
+  - PlayerMenu
   layers:
   - Default
   - TransparentFX

@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 8085255919555072058}
   - component: {fileID: 8085255919555072056}
   - component: {fileID: 1954011076}
-  - component: {fileID: 801547117}
+  - component: {fileID: 5420198302323829724}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -274,7 +274,7 @@ Transform:
   m_GameObject: {fileID: 8085255919555072060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3.96, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8085255918100369444}
@@ -373,13 +373,12 @@ MonoBehaviour:
   extraSpeedMultiplier: 3
   weaponHolder: {fileID: 0}
   autoShoot: 0
+  isInMenu: 0
   sliderHP: {fileID: 0}
   hurtClip: {fileID: 8300000, guid: 021076935bb5033498cfb386d56a734f, type: 3}
-  pickUpClip: {fileID: 8300000, guid: 021076935bb5033498cfb386d56a734f, type: 3}
+  pickupItemClip: {fileID: 0}
   audioMixerGroup: {fileID: 4339752897506746412, guid: 781d07d6790b721458e3a4411080fba4, type: 2}
-  weapons:
-  - {fileID: 8085255918986080521}
-  weaponsEquipped: []
+  weapons: []
 --- !u!114 &1954011076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,8 +394,8 @@ MonoBehaviour:
   topRight: {x: 0, y: 0, z: 0}
   width: 0
   height: 0
---- !u!61 &801547117
-BoxCollider2D:
+--- !u!60 &5420198302323829724
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -408,7 +407,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0017479956, y: 0.02810955}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -418,9 +417,14 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.6871936, y: 0.6086798}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.09623344, y: 0.21826696}
+      - {x: -0.24267387, y: -0.0704329}
+      - {x: -0.35008457, y: -0.17248571}
+      - {x: 0.35184538, y: -0.2112242}
+      - {x: 0.24418968, y: -0.06561756}
+      - {x: 0.12768352, y: 0.21826696}
 --- !u!1001 &450578232561876831
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1094,17 +1098,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4364131533369058102, guid: e419970249297894fa59e0d4dc3465f0, type: 3}
   m_PrefabInstance: {fileID: 8085255919283006435}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8085255918986080521 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1941363434, guid: e419970249297894fa59e0d4dc3465f0, type: 3}
-  m_PrefabInstance: {fileID: 8085255919283006435}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eacaaeb71c9bbd449751ed832fe9938, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8227923247268723136
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22efdc4919c70294eb34dc90b35fd820, type: 3}
   m_Name: AutoCannon
   m_EditorClassIdentifier: 
+  sprite: {fileID: -321144251, guid: e4a75da1c966dd8469b8aa3d5f5459df, type: 3}
+  weaponPrefab: {fileID: 4364131533369057483, guid: e419970249297894fa59e0d4dc3465f0, type: 3}
+  projectilePrefab: {fileID: 2992165248105815452, guid: c3d0d26d9f595b54d9a61c9529bb9892, type: 3}
   path: 01 Prefabs/Projectile/AutoCannonProjectile
-  weaponName: AutoCannon
+  weaponName: Auto Cannon
   bulletName: AutoCannonProjectile
   fireRate: 1
   damage: 18
-  bulletSpeed: 11
+  bulletSpeed: 10
+  maxLevel: 0
+  upgradeCost: 0
+  price: 0

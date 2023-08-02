@@ -11,13 +11,6 @@ public class ButtonPlay : ButtonBase
         base.ClickButton();
         _panel.SetActive(true);
         GameStateManager.Instance.SetState(_state);
+        SavingSystem.Instance.SaveData();
     }
-
-    //public void SetMusic()
-    //{
-    //    myAudioSourcePrefabs.RemoveList(myAudioSourcePrefabs);
-    //    Music music = FindObjectOfType<Music>();
-    //    music?.ChangeMusic(_music);
-    //}
-
 }

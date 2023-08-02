@@ -16,6 +16,7 @@ public class SOEnemy : ScriptableObject
     public AudioClip dieClip;
     public AudioMixerGroup audioMixerGroup;
     public Sprite phase2Sprite;
+    public Sprite sprite;
     public GameObject bulletPrefab;
 
     public List<GameObject> droppedItems = new List<GameObject>();

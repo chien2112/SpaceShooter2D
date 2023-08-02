@@ -14,6 +14,7 @@ public class Player : LivingEntity
     [SerializeField] Transform weaponHolder;
 
     [SerializeField] bool autoShoot;
+    [SerializeField] bool isInMenu;
 
     [SerializeField] Slider sliderHP;
 
@@ -22,41 +23,30 @@ public class Player : LivingEntity
     [SerializeField] AudioMixerGroup audioMixerGroup;
 
     public List<Weapon> weapons = new List<Weapon>();
-    public List<Weapon> weaponsEquipped = new List<Weapon>();
     GameStateManager gameStateManager;
-
     public float CurHealth { get => CurrentHealth; set => CurrentHealth = value; }
 
     private void Awake()
-    {
+    {   
         weaponHolder = transform.GetChild(0);
-        weapons.Clear();
-        weaponsEquipped.Clear();
-        weaponsEquipped = PlayerData.Instance.weapons;
-        foreach (Weapon weapon in weaponsEquipped)
-        {
-            foreach(Transform wp in weaponHolder)
-            {
-                if (weapon.gameObject.name == wp.gameObject.name)
-                {
-                    wp.gameObject.SetActive(true);
-                    weapons.Add(wp.GetComponent<Weapon>());
-                }
-            }
-        }
-
         health = 100f;
         autoShoot = false;
         gameStateManager = GameStateManager.Instance;
         OnDeath += PlayerDie;
     }
+
+    protected override void Start()
+    {
+        base.Start();
+        SavingSystem.Instance.LoadWeaponList();
+    }
     private void Update()
     {
         Pause();
-        if (GameStateManager.Instance.GetState() != GameState.Playing) return;
-        Move();
+        if (GameStateManager.Instance.GetState() == GameState.Pausing) return;
         AutoShoot();
         Shoot();
+        Move();
     }
     void Move()
     {
@@ -68,7 +58,7 @@ public class Player : LivingEntity
     }
     void Shoot()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !isInMenu)
         {
             foreach (Weapon wp in weapons)
             {
@@ -78,7 +68,7 @@ public class Player : LivingEntity
     }
     void AutoShoot()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) && !isInMenu)
         {
             autoShoot = !autoShoot;
         }
@@ -93,7 +83,7 @@ public class Player : LivingEntity
     }
     void Pause()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) && !isInMenu)
         {        
             if(gameStateManager.GetState() == GameState.Playing)
             {
@@ -139,7 +129,6 @@ public class Player : LivingEntity
     {
         gameStateManager.SetState(GameState.Lose);
     }
-
 }
 
 

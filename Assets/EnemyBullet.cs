@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    [SerializeField] float damage;
-    [SerializeField] float speed;
+    [SerializeField] private float damage;
+    [SerializeField] private float speed;
 
     public float Damage { get => damage;}
     public float Speed { get => speed;}

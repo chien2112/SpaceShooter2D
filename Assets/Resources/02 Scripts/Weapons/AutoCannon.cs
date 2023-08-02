@@ -13,11 +13,11 @@ public class AutoCannon : Weapon
     {
         if(index == 1)
         {
-            ObjectPooling.GetGameObjectFromPool(weaponData.bulletName, shootingPoint.position, weaponData.path);
+            ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint.position);
         }
         else
         {
-            ObjectPooling.GetGameObjectFromPool(weaponData.bulletName, shootingPoint2.position, weaponData.path);
+            ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint.position);
         }
         SoundManager.Instance.PlayClip(shootingClip, audioMixerGroup);
     }

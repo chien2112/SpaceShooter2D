@@ -42,7 +42,7 @@ public abstract class EnemyBase : LivingEntity, IDroppable
         isDead = true;
         SoundManager.Instance.PlayClip(dieClip, audioMixerGroup);  
     }
-    void Initial()
+    public void Initial()
     {
         isDead = false;
         enemyName = soEnemy.enemyName;
@@ -50,10 +50,11 @@ public abstract class EnemyBase : LivingEntity, IDroppable
         enemyDamage = soEnemy.damage;
         enemySpeed = soEnemy.speed;
         currentHealth = health;
+        GetComponent<SpriteRenderer>().sprite = soEnemy.sprite;
+        phase2Sprite = soEnemy.phase2Sprite;
 
         dieClip = soEnemy.dieClip;
         audioMixerGroup = soEnemy.audioMixerGroup;
-        phase2Sprite = soEnemy.phase2Sprite;
         enemyBulletPrefab = soEnemy.bulletPrefab;
         items = soEnemy.droppedItems;
 

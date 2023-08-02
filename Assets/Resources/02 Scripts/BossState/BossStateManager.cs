@@ -29,6 +29,11 @@ public class BossStateManager : MonoBehaviour
         currentState = idleState;
         currentState.EnterState(this);
     }
+    void OnEnable()
+    {
+        currentState = idleState;
+        currentState.EnterState(this);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -51,9 +56,9 @@ public class BossStateManager : MonoBehaviour
     }
     public void SpawnBullet2()
     {
-        var bullet = ObjectPooling.GetGameObjectFromPool(enemyBase.EnemyBulletPrefab.name, transform.position, "01 Prefabs/Enemy/Bullet/EnemyBullet_1");
-        var bullet2 = ObjectPooling.GetGameObjectFromPool(enemyBase.EnemyBulletPrefab.name, transform.position, "01 Prefabs/Enemy/Bullet/EnemyBullet_1");
-        var bullet3 = ObjectPooling.GetGameObjectFromPool(enemyBase.EnemyBulletPrefab.name, transform.position, "01 Prefabs/Enemy/Bullet/EnemyBullet_1");
+        var bullet = ObjectPooling.GetGameObjectFromPool(enemyBase.EnemyBulletPrefab, transform.position);
+        var bullet2 = ObjectPooling.GetGameObjectFromPool(enemyBase.EnemyBulletPrefab, transform.position);
+        var bullet3 = ObjectPooling.GetGameObjectFromPool(enemyBase.EnemyBulletPrefab, transform.position);
 
         bullet.transform.eulerAngles = new Vector3(0, 0, -90);
         bullet2.transform.eulerAngles = new Vector3(0, 0, -100);
@@ -70,7 +75,7 @@ public class BossStateManager : MonoBehaviour
         float bulletSpeed = enemyBase.EnemyBulletPrefab.GetComponent<EnemyBullet>().Speed;
         for (int i = 0; i <= 10; i++)
         {
-            var bullet = ObjectPooling.GetGameObjectFromPool(enemyBase.EnemyBulletPrefab.name, transform.position, "01 Prefabs/Enemy/Bullet/EnemyBullet_1");
+            var bullet = ObjectPooling.GetGameObjectFromPool(enemyBase.EnemyBulletPrefab, transform.position);
             float dirX = Mathf.Sin((a * Mathf.PI) / 180);
             float dirY = Mathf.Cos((a * Mathf.PI) / 180);
 

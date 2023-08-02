@@ -8,13 +8,13 @@ public abstract class Weapon : MonoBehaviour
     protected float animSpeed;
     [SerializeField] protected AudioClip shootingClip;
     [SerializeField] protected AudioMixerGroup audioMixerGroup;
+    [SerializeField] protected Animator anim;
     [Space(10)]
     [SerializeField] protected bool isUnlocked;
+    [SerializeField] protected int level;
     [SerializeField] protected SOWeapon weaponData;
     [Space(10)]
     [SerializeField] protected Transform shootingPoint;
-
-    [SerializeField] protected Animator anim;
 
     protected virtual void Awake()
     {

@@ -7,7 +7,6 @@ public class BossShootingState : BossBaseState
 {
     public override void EnterState(BossStateManager enemy)
     {
-        
         int rand = Random.Range(0, 6);
         switch (rand)
         {

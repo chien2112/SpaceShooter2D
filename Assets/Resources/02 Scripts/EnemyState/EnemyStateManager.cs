@@ -20,7 +20,7 @@ public class EnemyStateManager : MonoBehaviour
         player = UnityEngine.GameObject.FindGameObjectWithTag("Player").transform;
 
         enemyBase = GetComponent<EnemyBase>();
-        flyPathAgent = GetComponent<FlyPathAgent>();    
+        flyPathAgent = GetComponent<FlyPathAgent>();
 
         currentState = movingState;
         currentState.EnterState(this);
@@ -42,16 +42,16 @@ public class EnemyStateManager : MonoBehaviour
     #region SHOOTING STATE
     public void SpawnBullet()
     {
-        var bullet = ObjectPooling.GetGameObjectFromPool(enemyBase.EnemyBulletPrefab.name, transform.position, "01 Prefabs/Enemy/Bullet/EnemyBullet_1");
+        var bullet = ObjectPooling.GetGameObjectFromPool(enemyBase.EnemyBulletPrefab, transform.position);
         bullet.transform.eulerAngles = new Vector3(0, 0, -90);
         float bulletSpeed = enemyBase.EnemyBulletPrefab.GetComponent<EnemyBullet>().Speed;
         bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(0, -1).normalized * bulletSpeed;
     }
     public void SpawnBullet2()
     {
-        var bullet = ObjectPooling.GetGameObjectFromPool(enemyBase.EnemyBulletPrefab.name, transform.position, "01 Prefabs/Enemy/Bullet/EnemyBullet_1");
-        var bullet2 = ObjectPooling.GetGameObjectFromPool(enemyBase.EnemyBulletPrefab.name, transform.position, "01 Prefabs/Enemy/Bullet/EnemyBullet_1");
-        var bullet3 = ObjectPooling.GetGameObjectFromPool(enemyBase.EnemyBulletPrefab.name, transform.position, "01 Prefabs/Enemy/Bullet/EnemyBullet_1");
+        var bullet = ObjectPooling.GetGameObjectFromPool(enemyBase.EnemyBulletPrefab, transform.position);
+        var bullet2 = ObjectPooling.GetGameObjectFromPool(enemyBase.EnemyBulletPrefab, transform.position);
+        var bullet3 = ObjectPooling.GetGameObjectFromPool(enemyBase.EnemyBulletPrefab, transform.position);
 
         bullet.transform.eulerAngles = new Vector3(0, 0, -90);
         bullet2.transform.eulerAngles = new Vector3(0, 0, -100);
@@ -68,7 +68,7 @@ public class EnemyStateManager : MonoBehaviour
         float bulletSpeed = enemyBase.EnemyBulletPrefab.GetComponent<EnemyBullet>().Speed;
         for (int i = 0; i <= 10; i++)
         {
-            var bullet = ObjectPooling.GetGameObjectFromPool(enemyBase.EnemyBulletPrefab.name, transform.position, "01 Prefabs/Enemy/Bullet/EnemyBullet_1");
+            var bullet = ObjectPooling.GetGameObjectFromPool(enemyBase.EnemyBulletPrefab, transform.position);
             float dirX = Mathf.Sin((a * Mathf.PI) / 180);
             float dirY = Mathf.Cos((a * Mathf.PI) / 180);
 

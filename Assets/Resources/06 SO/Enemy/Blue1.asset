@@ -21,6 +21,7 @@ MonoBehaviour:
   dieClip: {fileID: 8300000, guid: 45e3974b037513444a36a739cd23f811, type: 3}
   audioMixerGroup: {fileID: 4339752897506746412, guid: 781d07d6790b721458e3a4411080fba4, type: 2}
   phase2Sprite: {fileID: -1408001096, guid: 7929e43faf14ec54a9d92fe3dc8133cd, type: 3}
+  sprite: {fileID: -254473837, guid: 7929e43faf14ec54a9d92fe3dc8133cd, type: 3}
   bulletPrefab: {fileID: 8968289870153680284, guid: 697177ffa17cad1428391a7279b27a57, type: 3}
   droppedItems:
   - {fileID: 3375935177350047449, guid: 18d07809cdca3534789c30a2d46b075a, type: 3}

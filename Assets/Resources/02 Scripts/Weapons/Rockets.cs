@@ -17,22 +17,22 @@ public class Rockets : Weapon
         switch (index)
         {
             case 1:
-                ObjectPooling.GetGameObjectFromPool(weaponData.bulletName, shootingPoint.position, weaponData.path);
+                ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint.position);
                 break;
             case 2:
-                ObjectPooling.GetGameObjectFromPool(weaponData.bulletName, shootingPoint2.position, weaponData.path);
+                ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint2.position);
                 break;
             case 3:
-                ObjectPooling.GetGameObjectFromPool(weaponData.bulletName, shootingPoint3.position, weaponData.path);
+                ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint3.position);
                 break;
             case 4:
-                ObjectPooling.GetGameObjectFromPool(weaponData.bulletName, shootingPoint4.position, weaponData.path);
+                ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint4.position);
                 break;
             case 5:
-                ObjectPooling.GetGameObjectFromPool(weaponData.bulletName, shootingPoint5.position, weaponData.path);
+                ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint5.position);
                 break;
             case 6:
-                ObjectPooling.GetGameObjectFromPool(weaponData.bulletName, shootingPoint6.position, weaponData.path);
+                ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint6.position);
                 break;
         }
         SoundManager.Instance.PlayClip(shootingClip, audioMixerGroup);
