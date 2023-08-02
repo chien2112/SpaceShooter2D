@@ -9,6 +9,7 @@ public class ButtonClosePanel : ButtonBase
     protected override void ClickButton()
     {
         base.ClickButton();
+        CursorManager.Instance.CursorVisible(false);
         GameStateManager.Instance.SetState(_state);
         _panel.SetActive(false);
     }

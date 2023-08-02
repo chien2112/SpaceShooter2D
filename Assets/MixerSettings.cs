@@ -11,14 +11,21 @@ public class MixerSettings : MonoBehaviour
     [SerializeField] Slider sliderVFX;
     const string mixerMusic = "MusicBackground";
     const string mixerVFX = "Effect";
-
+    private void Awake()
+    {
+        Debug.Log("volume");
+    }
     private void Start()
     {
+        
         sliderMusic.onValueChanged.AddListener(SetMusicVolume);
         sliderVFX.onValueChanged.AddListener(SetVFXVolume);
 
         sliderMusic.value = PlayerPrefs.GetFloat("MusicVolume", 10);
-        sliderVFX.value = PlayerPrefs.GetFloat("VFXVolume", 10);   
+        sliderVFX.value = PlayerPrefs.GetFloat("VFXVolume", 10);
+
+        SetMusicVolume(sliderMusic.value);
+        SetVFXVolume(sliderVFX.value);
     }
     void SetMusicVolume(float value)
     {

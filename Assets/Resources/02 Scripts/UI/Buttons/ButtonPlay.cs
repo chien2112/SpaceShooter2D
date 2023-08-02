@@ -9,6 +9,7 @@ public class ButtonPlay : ButtonBase
     protected override void ClickButton()
     {
         base.ClickButton();
+        CursorManager.Instance.CursorVisible(true);
         _panel.SetActive(true);
         GameStateManager.Instance.SetState(_state);
         SavingSystem.Instance.SaveData();
