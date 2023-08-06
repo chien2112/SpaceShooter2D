@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7764319782891855074}
   - component: {fileID: 7762601826858737518}
   - component: {fileID: 3360738430004436337}
+  - component: {fileID: 1424848200620162970}
   m_Layer: 5
   m_Name: btnUnequip
   m_TagString: Untagged
@@ -122,6 +123,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1424848200620162970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790969373451179704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bbd98c1435678b4bbc5961a821653e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 48e396aec4af57d40b5ca09f645fb33d, type: 3}
+  audioMixerGroup: {fileID: 4339752897506746412, guid: 781d07d6790b721458e3a4411080fba4, type: 2}
 --- !u!1 &1112055724446116979
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,6 +149,7 @@ GameObject:
   - component: {fileID: 1112055724446116983}
   - component: {fileID: 1112055724446116980}
   - component: {fileID: 1112055724446116981}
+  - component: {fileID: 3170536751400033835}
   m_Layer: 5
   m_Name: btnEquip
   m_TagString: Untagged
@@ -244,6 +260,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3170536751400033835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112055724446116979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bbd98c1435678b4bbc5961a821653e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 48e396aec4af57d40b5ca09f645fb33d, type: 3}
+  audioMixerGroup: {fileID: 4339752897506746412, guid: 781d07d6790b721458e3a4411080fba4, type: 2}
 --- !u!1 &1112055724600065144
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,6 +286,7 @@ GameObject:
   - component: {fileID: 1112055724600065148}
   - component: {fileID: 1112055724600065149}
   - component: {fileID: 1112055724600065146}
+  - component: {fileID: 4951880257945106085}
   m_Layer: 5
   m_Name: btnUpgrade
   m_TagString: Untagged
@@ -366,6 +397,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4951880257945106085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112055724600065144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bbd98c1435678b4bbc5961a821653e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: dd04abd48491fc54d82cb6a2c5133d0e, type: 3}
+  audioMixerGroup: {fileID: 4339752897506746412, guid: 781d07d6790b721458e3a4411080fba4, type: 2}
 --- !u!1 &1112055724619427891
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,7 +716,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 395, y: -26}
+  m_AnchoredPosition: {x: 395, y: -34}
   m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1112055724945656681
@@ -806,8 +851,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 395, y: 31}
-  m_SizeDelta: {x: 150, y: 50}
+  m_AnchoredPosition: {x: 353.1046, y: -0.0131}
+  m_SizeDelta: {x: 66.2092, y: 74.6972}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1112055725054179465
 CanvasRenderer:
@@ -837,7 +882,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 1
+  m_text: Level 1 (MAX)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -864,15 +909,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 30
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 30
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1359,12 +1404,16 @@ MonoBehaviour:
   txtPrice: {fileID: 0}
   txtCost: {fileID: 0}
   txtLevel: {fileID: 0}
+  dataWeapon:
+    name: 
+    soWeapon: {fileID: 0}
+    currentLevel: 0
+    isUnlocked: 0
+    isEquipped: 0
   soWeapon: {fileID: 0}
   player: {fileID: 0}
-  playerData:
-    weapons: []
-    coin: 0
   savingSystem: {fileID: 0}
+  playerDataManager: {fileID: 0}
 --- !u!1 &1112055725509908868
 GameObject:
   m_ObjectHideFlags: 0
@@ -1377,6 +1426,7 @@ GameObject:
   - component: {fileID: 1112055725509908888}
   - component: {fileID: 1112055725509908889}
   - component: {fileID: 1112055725509908870}
+  - component: {fileID: 2169611814298015269}
   m_Layer: 5
   m_Name: btnBuy
   m_TagString: Untagged
@@ -1487,6 +1537,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2169611814298015269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112055725509908868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bbd98c1435678b4bbc5961a821653e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: dd04abd48491fc54d82cb6a2c5133d0e, type: 3}
+  audioMixerGroup: {fileID: 4339752897506746412, guid: 781d07d6790b721458e3a4411080fba4, type: 2}
 --- !u!1 &5157894744527535811
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,7 +1568,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5863901821428016076
 RectTransform:
   m_ObjectHideFlags: 0

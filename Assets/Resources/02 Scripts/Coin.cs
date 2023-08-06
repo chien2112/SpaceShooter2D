@@ -9,7 +9,7 @@ public class Coin : MonoBehaviour, IPickable
 
     public void Pickup(Player player)
     {
-        SavingSystem.Instance.playerData.coin += value;
+        SavingSystem.Instance.dataPlayer.coin += value;
     }
 
     private void Awake()
@@ -22,5 +22,12 @@ public class Coin : MonoBehaviour, IPickable
         float rand = Random.Range(0.1f, 0.2f);
         rb.gravityScale = rand;
         
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("DeadZone"))
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

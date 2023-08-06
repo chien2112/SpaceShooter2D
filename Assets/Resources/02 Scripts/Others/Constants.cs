@@ -41,3 +41,10 @@ public enum GameState
     HomeMenu,
     LevelSelecting
 }
+public enum ShopPageName
+{
+    PageShip,
+    PageWeapon,
+    PageShield,
+    PageEngine
+}

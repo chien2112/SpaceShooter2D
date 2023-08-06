@@ -5,34 +5,33 @@ using UnityEngine.Audio;
 [Serializable]
 public abstract class Weapon : MonoBehaviour
 {
-    protected float animSpeed;
     [SerializeField] protected AudioClip shootingClip;
     [SerializeField] protected AudioMixerGroup audioMixerGroup;
     [SerializeField] protected Animator anim;
     [Space(10)]
-    [SerializeField] protected bool isUnlocked;
-    [SerializeField] protected int level;
     [SerializeField] protected SOWeapon weaponData;
+    [Space(10)]
+    [SerializeField] protected int level;
+    [SerializeField] protected float fireRate; //animation speed
+    [SerializeField] protected float damage;
+    [SerializeField] protected float bulletSpeed;
     [Space(10)]
     [SerializeField] protected Transform shootingPoint;
 
-    protected virtual void Awake()
+    public void Init()
     {
-        animSpeed = weaponData.fireRate;
         anim = GetComponent<Animator>();
-        SetFireRate(animSpeed);
+        level = SavingSystem.Instance.GetDataWeaponByName(weaponData.weaponName).currentLevel;
+        fireRate = weaponData.fireRate * weaponData.fireRateMultiplier * level;
+        bulletSpeed = weaponData.bulletSpeed;
+        damage = weaponData.damage * weaponData.damageMultiplier * level;
+        anim.speed = fireRate;
     }
-
     public void DoShoot()
     {
         anim.SetBool("isShooting", true);
     }
-    public void SetFireRate(float speed)
-    {
-        animSpeed = speed;
-        anim.speed = animSpeed;
-    }
-    
+
     public void StopAnim()
     {
         anim.SetBool("isShooting", false);

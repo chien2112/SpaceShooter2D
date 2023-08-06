@@ -15,12 +15,12 @@ MonoBehaviour:
   sprite: {fileID: 858303342, guid: 7701b04d74dd15544a20f911e2e0b7a0, type: 3}
   weaponPrefab: {fileID: 4364131533369057483, guid: 325366545cff86d4e811afc05c7b5a14, type: 3}
   projectilePrefab: {fileID: 2992165248105815452, guid: f15fe4c75357da64dafd2c51f5cba01c, type: 3}
-  path: 01 Prefabs/Projectile/BigSpaceGunProjectile
   weaponName: Big Space Gun
-  bulletName: BigSpaceGunProjectile
   fireRate: 1
   damage: 50
-  bulletSpeed: 11
-  maxLevel: 0
-  upgradeCost: 0
-  price: 0
+  bulletSpeed: 6
+  fireRateMultiplier: 1.1
+  damageMultiplier: 1.08
+  maxLevel: 4
+  price: 100
+  upgradeCosts: 9600000090010000b0040000

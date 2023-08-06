@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Boundaries : MonoBehaviour
 {
-    [SerializeField] Vector3 topRight;
-    [SerializeField] float width;
-    [SerializeField] float height;
+    private Vector3 topRight;
+    private float width;
+    private float height;
 
     private void Awake()
     {

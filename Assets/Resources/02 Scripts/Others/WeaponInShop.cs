@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
+
 public class WeaponInShop : MonoBehaviour
 {
     [SerializeField] private Button btnEquip;
@@ -16,15 +18,11 @@ public class WeaponInShop : MonoBehaviour
     [SerializeField] private TextMeshProUGUI txtCost;
     [SerializeField] private TextMeshProUGUI txtLevel;
 
+    [SerializeField] public DataWeapon dataWeapon;
     [SerializeField] public SOWeapon soWeapon;
 
     [SerializeField] private Player player;
-    [SerializeField] private PlayerData playerData;
     [SerializeField] private SavingSystem savingSystem;
-    private void Awake()
-    {
-       
-    }
     private void Start()
     {
         Init();
@@ -36,13 +34,6 @@ public class WeaponInShop : MonoBehaviour
         txtPrice = transform.Find("txtPrice").GetComponent<TextMeshProUGUI>();
         txtCost = transform.Find("txtCost").GetComponent<TextMeshProUGUI>();
         txtLevel = transform.Find("txtLevel").GetComponent<TextMeshProUGUI>();
-
-        gameObject.name = soWeapon.weaponName;
-        image.sprite = soWeapon.sprite;
-        txtName.text = soWeapon.weaponName;
-        txtPrice.text = "Price: " + soWeapon.price.ToString();
-        txtCost.text = "Cost: " + soWeapon.upgradeCost.ToString();
-        txtLevel.text = "Level: 0";
 
         btnEquip = transform.Find("btnEquip").GetComponent<Button>();
         btnUnequip = transform.Find("btnUnequip").GetComponent<Button>();
@@ -59,39 +50,90 @@ public class WeaponInShop : MonoBehaviour
         btnBuy.onClick.AddListener(ClickButtonBuy);
         btnUpgrade.onClick.AddListener(ClickButtonUpgrade);
 
-        playerData = SavingSystem.Instance.playerData;
         savingSystem = SavingSystem.Instance;
+        dataWeapon = savingSystem.dataPlayer.dataWeapons.Where(x => x.name == soWeapon.weaponName).First();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
-        if (playerData.weapons.Contains(soWeapon.name))
+        gameObject.name = soWeapon.weaponName;
+        image.sprite = soWeapon.sprite;
+        txtName.text = soWeapon.weaponName;
+        txtPrice.text = "Price: " + soWeapon.price;
+        txtLevel.text = "Level: " + dataWeapon.currentLevel;
+
+        if (dataWeapon.isUnlocked)
         {
-            btnUnequip.gameObject.SetActive(true);
+            txtCost.gameObject.SetActive(true);
+            txtLevel.gameObject.SetActive(true);
+            btnUpgrade.gameObject.SetActive(true);
+            if (dataWeapon.isEquipped)
+            {
+                btnUnequip.gameObject.SetActive(true);
+            }
+            else
+            {
+                btnEquip.gameObject.SetActive(true);
+            }
+            if (dataWeapon.currentLevel == dataWeapon.soWeapon.maxLevel)
+            {
+                txtCost.gameObject.SetActive(false);
+                btnUpgrade.gameObject.SetActive(false);
+                txtLevel.text = "Level: " + dataWeapon.currentLevel.ToString() + " (MAX)";
+            }
+            else
+            {
+                txtCost.text = "Cost: " + dataWeapon.soWeapon.upgradeCosts[dataWeapon.currentLevel - 1];
+            }
         }
         else
         {
-            btnEquip.gameObject.SetActive(true);
+            btnBuy.gameObject.SetActive(true);
+            txtPrice.gameObject.SetActive(true);
         }
+
     }
     void ClickButtonEquip()
     {
-        savingSystem.AddWeapon(soWeapon.name);
-        savingSystem.LoadWeaponList();
+        savingSystem.EquipWeapon(soWeapon.weaponName);
         btnEquip.gameObject.SetActive(false);
         btnUnequip.gameObject.SetActive(true);
     }
     void ClickButtonUnequip()
     {
-        savingSystem.RemoveWeapon(soWeapon.name);
-        savingSystem.LoadWeaponList();
+        savingSystem.UnequipWeapon(soWeapon.weaponName);
         btnEquip.gameObject.SetActive(true);
         btnUnequip.gameObject.SetActive(false);
     }
     void ClickButtonBuy()
     {
+        if(savingSystem.BuyWeapon(soWeapon.weaponName, soWeapon.price))
+        {
+            btnEquip.gameObject.SetActive(true);
+            btnUnequip.gameObject.SetActive(false);
+            btnBuy.gameObject.SetActive(false);
+            btnUpgrade.gameObject.SetActive(true);
+            txtPrice.gameObject.SetActive(false);
+            txtLevel.gameObject.SetActive(true);
+            txtCost.gameObject.SetActive(true);
+        }
     }
     void ClickButtonUpgrade()
     {
+        int upgradeCost = dataWeapon.soWeapon.upgradeCosts[dataWeapon.currentLevel - 1];
+        if (savingSystem.UpgradeWeapon(soWeapon.weaponName, upgradeCost))
+        {
+            if (dataWeapon.currentLevel == dataWeapon.soWeapon.maxLevel)
+            {
+                txtCost.gameObject.SetActive(false);
+                btnUpgrade.gameObject.SetActive(false);
+                txtLevel.text = "Level: " + dataWeapon.currentLevel.ToString() + " (MAX)";
+            }
+            else
+            {
+                txtCost.text = "Cost: " + dataWeapon.soWeapon.upgradeCosts[dataWeapon.currentLevel-1].ToString();
+                txtLevel.text = "Level: " + dataWeapon.currentLevel.ToString();
+            }
+        }
     }
 
-   
+
 }

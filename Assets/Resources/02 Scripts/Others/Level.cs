@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
+    public bool isClear;
     void Awake()
     {
         var result = FindObjectsOfType<Level>();
@@ -12,5 +13,6 @@ public class Level : MonoBehaviour
             if (lv != this)
                 Destroy(lv.gameObject);
         }
+        isClear = false;
     }
 }

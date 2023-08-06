@@ -17,11 +17,21 @@ public class Blue1 : EnemyBase
             case 1:
                 ObjectPooling.GetGameObjectFromPool(items[0], spawnPoint);
                 break;
+            case 2:
+                ObjectPooling.GetGameObjectFromPool(items[0], spawnPoint);
+                ObjectPooling.GetGameObjectFromPool(items[1], spawnPoint);
+                break;
+            case 3:
+                foreach (var item in items)
+                {
+                    ObjectPooling.GetGameObjectFromPool(item, spawnPoint);
+                }
+                break;
             default:
                 ObjectPooling.GetGameObjectFromPool(items[1], spawnPoint);
                 break;
         }
-        
+
     }
 
 }

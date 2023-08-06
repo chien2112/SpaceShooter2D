@@ -10,9 +10,9 @@ public class ButtonMenu : ButtonBase
     {
         base.ClickButton();
         SetMusic();
+        SavingSystem.Instance.SaveData();
         GameStateManager.Instance.SetState(_state);
         SceneManager.LoadScene("Menu");
-        ObjectPooling.ClearDic();
     }
     public void SetMusic()
     {

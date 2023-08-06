@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4116820135541406172}
   - component: {fileID: 8633860665815073988}
   - component: {fileID: 2914708738673496798}
-  - component: {fileID: 133910499}
   - component: {fileID: -8499689766972354285}
+  - component: {fileID: 420824273436815849}
   m_Layer: 0
   m_Name: RocketsProjectile
   m_TagString: Untagged
@@ -129,32 +129,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!61 &133910499
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2992165248105815452}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16666667, y: 0.5}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.16666667, y: 0.5}
-  m_EdgeRadius: 0
 --- !u!114 &-8499689766972354285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,3 +144,19 @@ MonoBehaviour:
   weaponData: {fileID: 11400000, guid: 349ee0c722bb2434683349d4833da813, type: 2}
   explosionClip: {fileID: 8300000, guid: e78834d4b1c897c43bd9a91a46ae7a50, type: 3}
   audioMixerGroup: {fileID: 4339752897506746412, guid: 781d07d6790b721458e3a4411080fba4, type: 2}
+--- !u!70 &420824273436815849
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2992165248105815452}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0024242513, y: 0.02020204}
+  m_Size: {x: 0.10686862, y: 0.35292906}
+  m_Direction: 0

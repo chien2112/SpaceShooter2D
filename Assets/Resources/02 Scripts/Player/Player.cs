@@ -9,41 +9,44 @@ using UnityEngine.Audio;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : LivingEntity
 {
+    [Space(10)]
     [SerializeField] float moveSpeed;
     [SerializeField] float extraSpeedMultiplier;
-    [SerializeField] Transform weaponHolder;
-
-    [SerializeField] bool autoShoot;
+    private bool autoShoot;
+    public bool canTakeDamage;
+    [Space(10)]
     [SerializeField] bool isInMenu;
-
-    [SerializeField] Slider sliderHP;
-
+    [Space(10)]
+    [SerializeField] private Slider sliderHP;
+    [Space(10)]
     [SerializeField] AudioClip hurtClip;
     [SerializeField] AudioClip pickupItemClip;
     [SerializeField] AudioMixerGroup audioMixerGroup;
-
+    [Space(10)]
     public List<Weapon> weapons = new List<Weapon>();
     GameStateManager gameStateManager;
     public float CurHealth { get => CurrentHealth; set => CurrentHealth = value; }
 
     private void Awake()
-    {   
-        weaponHolder = transform.GetChild(0);
+    {
+        canTakeDamage = true;
+        isDead = false;
         health = 100f;
         autoShoot = false;
         gameStateManager = GameStateManager.Instance;
         OnDeath += PlayerDie;
+        
     }
-
+    
     protected override void Start()
     {
         base.Start();
-        SavingSystem.Instance.LoadWeaponList();
+        SavingSystem.Instance.LoadWeapon();
     }
     private void Update()
     {
         Pause();
-        if (GameStateManager.Instance.GetState() == GameState.Pausing) return;
+        if (gameStateManager.GetState() == GameState.Pausing) return;
         AutoShoot();
         Shoot();
         Move();
@@ -106,10 +109,11 @@ public class Player : LivingEntity
         }
         if (collision.CompareTag("EnemyBullet"))
         {
+            collision.gameObject.SetActive(false);
             SoundManager.Instance.PlayClip(hurtClip, audioMixerGroup);
+            if (!canTakeDamage) return;     
             EnemyBullet bullet = collision.GetComponent<EnemyBullet>();
             TakeDamage(bullet.Damage);
-            collision.gameObject.SetActive(false);
             UpdateSliderHP();
         }
         if (collision.CompareTag("Item"))
@@ -127,6 +131,7 @@ public class Player : LivingEntity
 
     void PlayerDie()
     {
+        isDead = true;
         gameStateManager.SetState(GameState.Lose);
     }
 }

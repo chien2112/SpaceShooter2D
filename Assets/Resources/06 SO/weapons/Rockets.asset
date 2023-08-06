@@ -15,12 +15,12 @@ MonoBehaviour:
   sprite: {fileID: -269407345, guid: 278df18ba8d030a44a7df6d69c9f75de, type: 3}
   weaponPrefab: {fileID: 4364131533369057483, guid: 04e43392123823748a9caa4775905b8b, type: 3}
   projectilePrefab: {fileID: 2992165248105815452, guid: 2dc0927c69ae9a54787da58c60e0d124, type: 3}
-  path: 01 Prefabs/Projectile/RocketsProjectile
   weaponName: Rockets
-  bulletName: RocketProjectile
   fireRate: 1
-  damage: 16
-  bulletSpeed: 2.8
-  maxLevel: 0
-  upgradeCost: 0
-  price: 0
+  damage: 14
+  bulletSpeed: -1.7
+  fireRateMultiplier: 1.07
+  damageMultiplier: 1.1
+  maxLevel: 4
+  price: 200
+  upgradeCosts: 640000005e0100004c040000

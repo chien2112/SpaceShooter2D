@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 589090570225307134}
   - component: {fileID: 4116820135541406172}
-  - component: {fileID: 2250201960387597823}
   - component: {fileID: 8633860665815073988}
   - component: {fileID: 8764207342475905693}
   - component: {fileID: 9003016706467524524}
+  - component: {fileID: 6461951283552232705}
   m_Layer: 0
   m_Name: AutoCannonProjectile
   m_TagString: Untagged
@@ -88,32 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2250201960387597823
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2992165248105815452}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.086167336}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.33333334, y: 0.56666666}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.33333334, y: 0.39433193}
-  m_EdgeRadius: 0
 --- !u!50 &8633860665815073988
 Rigidbody2D:
   serializedVersion: 4
@@ -170,3 +144,19 @@ MonoBehaviour:
   weaponData: {fileID: 11400000, guid: db682e2521ebd044ab66662895b00803, type: 2}
   explosionClip: {fileID: 8300000, guid: e78834d4b1c897c43bd9a91a46ae7a50, type: 3}
   audioMixerGroup: {fileID: 4339752897506746412, guid: 781d07d6790b721458e3a4411080fba4, type: 2}
+--- !u!70 &6461951283552232705
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2992165248105815452}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.000985086, y: 0.057134002}
+  m_Size: {x: 0.272259, y: 0.357832}
+  m_Direction: 0

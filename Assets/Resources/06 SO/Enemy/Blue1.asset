@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 404813d11c6a66d4a91781065a3705e1, type: 3}
   m_Name: Blue1
   m_EditorClassIdentifier: 
-  health: 140
+  health: 150
   speed: 5
   damage: 11
   flySpeed: 2
@@ -25,4 +25,5 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8968289870153680284, guid: 697177ffa17cad1428391a7279b27a57, type: 3}
   droppedItems:
   - {fileID: 3375935177350047449, guid: 18d07809cdca3534789c30a2d46b075a, type: 3}
+  - {fileID: 8168898732101949309, guid: a14eda0a627e09147b7396efedfc9fab, type: 3}
   - {fileID: 8168898732101949309, guid: a14eda0a627e09147b7396efedfc9fab, type: 3}

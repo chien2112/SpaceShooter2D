@@ -1,12 +1,11 @@
+using UnityEngine;
+
 public class BigSpaceGun : Weapon
 {
-    protected override void Awake()
-    {
-        base.Awake();
-    }
     public void Shoot()
     {
-        ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint.position);
+        GameObject go = ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint.position);
+        go.GetComponent<Projectile>().Init(damage, bulletSpeed);
         SoundManager.Instance.PlayClip(shootingClip, audioMixerGroup);
     }
 }

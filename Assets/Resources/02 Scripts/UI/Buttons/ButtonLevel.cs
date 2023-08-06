@@ -17,6 +17,7 @@ public class ButtonLevel : ButtonBase
     protected override void ClickButton()
     {
         SetMusic();
+        SavingSystem.Instance.SaveData();
         GameStateManager.Instance.SetState(_state);
         SpawnLevel();
         SceneManager.LoadScene("Game");

@@ -5,19 +5,31 @@ using UnityEngine.Audio;
 
 public abstract class Projectile : MonoBehaviour
 {
-    protected float damage;
-    protected float speed;
+    [SerializeField] protected float damage;
+    [SerializeField] protected float bulletSpeed;
     [SerializeField] protected SOWeapon weaponData;
-    protected Rigidbody2D rb;
+    [SerializeField] protected Rigidbody2D rb;
 
     [SerializeField] protected AudioClip explosionClip;
     [SerializeField] protected AudioMixerGroup audioMixerGroup;
-    protected virtual void Awake()
+    protected void Awake()
     {
-        damage = weaponData.damage;
-        speed = weaponData.bulletSpeed;
+        rb = GetComponent<Rigidbody2D>();
     }
-    public abstract void SelfDestruct();
+    protected virtual void OnEnable()
+    {
+    }
+
+    protected void SelfDestruct()
+    {
+        gameObject.SetActive(false);
+    }
+    public void Init(float damage, float bulletSpeed)
+    {
+        this.bulletSpeed = bulletSpeed;
+        this.damage = damage;
+        rb.velocity = Vector2.up * bulletSpeed;
+    }
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))

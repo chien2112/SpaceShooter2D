@@ -66,6 +66,11 @@ public class EnemySpawner : MonoBehaviour
     {
         FirstSpawnCountdown();
         SpawnCountdown();
+
+        if (isTheLastSpawner)
+        {
+            
+        }
     }
     void SpawnCountdown()
     {
@@ -121,6 +126,10 @@ public class EnemySpawner : MonoBehaviour
             {
                 spawner.canSpawn = true;
                 StopCoroutine(IRepeatChecking());
+            }
+            if (isTheLastSpawner)
+            {
+                GameStateManager.Instance.SetState(GameState.Win);
             }
         }
     }

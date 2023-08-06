@@ -47,13 +47,13 @@ public class BossStateManager : MonoBehaviour
     }
 
     #region SHOOTING STATE
-    public void SpawnBullet()
-    {
-        var bullet = ObjectPooling.GetGameObjectFromPool(enemyBase.EnemyBulletPrefab.name, transform.position, "01 Prefabs/Enemy/Bullet/EnemyBullet_1");
-        bullet.transform.eulerAngles = new Vector3(0, 0, -90);
-        float bulletSpeed = enemyBase.EnemyBulletPrefab.GetComponent<EnemyBullet>().Speed;
-        bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(0, -1).normalized * bulletSpeed;
-    }
+    //public void SpawnBullet()
+    //{
+    //    var bullet = ObjectPooling.GetGameObjectFromPool(enemyBase.EnemyBulletPrefab.name, transform.position, "01 Prefabs/Enemy/Bullet/EnemyBullet_1");
+    //    bullet.transform.eulerAngles = new Vector3(0, 0, -90);
+    //    float bulletSpeed = enemyBase.EnemyBulletPrefab.GetComponent<EnemyBullet>().Speed;
+    //    bullet.GetComponent<Rigidbody2D>().velocity = new Vector3(0, -1).normalized * bulletSpeed;
+    //}
     public void SpawnBullet2()
     {
         var bullet = ObjectPooling.GetGameObjectFromPool(enemyBase.EnemyBulletPrefab, transform.position);

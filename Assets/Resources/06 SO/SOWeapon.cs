@@ -15,8 +15,12 @@ public class SOWeapon : ScriptableObject
     public float fireRate;
     public float damage;
     public float bulletSpeed;
+    [Space(10)]
+    public float fireRateMultiplier;
+    public float damageMultiplier;
+    [Space(10)]
     public int maxLevel;
-    public int upgradeCost;
-    public int price;  
-
+    public int price;
+    [Space(10)]
+    public List<int> upgradeCosts = new List<int>();
 }

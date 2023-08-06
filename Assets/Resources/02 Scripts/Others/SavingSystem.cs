@@ -6,68 +6,140 @@ using UnityEngine;
 
 public class SavingSystem : Singleton<SavingSystem>
 {
-    //private string path = "";
-    public string persistentPath = "";
-    public PlayerData playerData;
-    public Player player;
-    public Transform weaponHolder;
+    [SerializeField] private string path = "";
+    [SerializeField] private string persistentPath = "";
+    [Space(10)]
+    [SerializeField] private List<SOWeapon> soWeapons = new List<SOWeapon>();
+    [Space(10)]
+    public DataPlayer dataPlayer;
+    private Player player;
+    private Transform weaponHolder;
+
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         weaponHolder = player.transform.GetChild(0);
-        
         SetPaths();
+        InitDataWeapon();
         LoadData();
-        LoadWeaponList();
     }
-
     private void SetPaths()
     {
-        //path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.json";
+        path = Application.dataPath + Path.AltDirectorySeparatorChar + "SaveData.json";
         persistentPath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "SaveData.json";
     }
     public void SaveData()
     {
-        string json = JsonUtility.ToJson(playerData);
-        Debug.Log("save " + json);
-        File.WriteAllText(persistentPath, json);
+        string json = JsonUtility.ToJson(dataPlayer,true);
+        File.WriteAllText(path, json);
     }
     public void LoadData()
     {
-        string json = File.ReadAllText(persistentPath);
-        Debug.Log("load " + json);
-        playerData = JsonUtility.FromJson<PlayerData>(json);
-    }
-    public void AddWeapon(string weaponName)
-    {
-        if (!playerData.weapons.Contains(weaponName))
+        string json = File.ReadAllText(path);
+        if (json != null)
         {
-            playerData.weapons.Add(weaponName);   
+            dataPlayer = JsonUtility.FromJson<DataPlayer>(json);
+        }
+        else
+        {
+            InitDataWeapon();
+            SaveData();
         }
     }
-    public void RemoveWeapon(string weaponName)
+    void InitDataWeapon()
     {
-        playerData.weapons.Remove(weaponName);
-        player.weapons.Remove(weaponHolder.Find(weaponName).GetComponent<Weapon>());
-    }
-    public void ClearWeapon()
-    {
-        playerData.weapons.Clear();
-    }
-    public void LoadWeaponList()
-    {
-        player.weapons.Clear();
-        foreach (Transform t in weaponHolder)
+        foreach (SOWeapon soWeapon in soWeapons)
         {
-            t.gameObject.SetActive(false);
-        }
-        foreach (string weaponName in playerData.weapons)
-        {
-            weaponHolder.Find(weaponName).gameObject.SetActive(true);
-            player.weapons.Add(weaponHolder.Find(weaponName).GetComponent<Weapon>());
+            DataWeapon dataWeapon = new DataWeapon();
+            dataWeapon.name = soWeapon.weaponName;
+            dataWeapon.currentLevel = 1;
+            dataWeapon.soWeapon = soWeapon;
+            dataWeapon.isUnlocked = false;
+            dataWeapon.isEquipped = false;
+            dataPlayer.dataWeapons.Add(dataWeapon);
         }
     }
-    
+    public bool UsingCoin(int value)
+    {
+        dataPlayer.coin -= value;
+        if (dataPlayer.coin < 0)
+        {
+            dataPlayer.coin += value;
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public bool BuyWeapon(string weaponName, int price)
+    {
+        if (UsingCoin(price))
+        {
+            DataWeapon dataWeapon = GetDataWeaponByName(weaponName);
+            dataWeapon.isUnlocked = true;
+            dataWeapon.isEquipped = false;
+            ShopManager.Instance.UpdateCoinText();
+            return true;
+        }
+        return false;
+    }
+    public bool UpgradeWeapon(string weaponName, int cost)
+    {
+        if (UsingCoin(cost))
+        {
+            DataWeapon dataWeapon = GetDataWeaponByName(weaponName);
+            if (dataWeapon.currentLevel < dataWeapon.soWeapon.maxLevel)
+            {
+                dataWeapon.currentLevel++;
+                ShopManager.Instance.UpdateCoinText();
+                return true;
+            }
+        }
+        return false;
+    }
+    public void EquipWeapon(string weaponName)
+    {
+        DataWeapon dataWeapon = GetDataWeaponByName(weaponName);
+        dataWeapon.isEquipped = true;
+        LoadWeapon();
+    }
+    public void UnequipWeapon(string weaponName)
+    {
+        DataWeapon dataWeapon = GetDataWeaponByName(weaponName);
+        dataWeapon.isEquipped = false;
+        LoadWeapon();
+    }
+    public void LoadWeapon()
+    {
+        foreach (DataWeapon data in dataPlayer.dataWeapons)
+        {
+            if (data.isEquipped)
+            {
+                weaponHolder.Find(data.soWeapon.weaponName).gameObject.SetActive(true);
+                Weapon weapon = weaponHolder.Find(data.soWeapon.weaponName).GetComponent<Weapon>();
+                player.weapons.Add(weapon);
+                weapon.Init();
+            }
+            else
+            {
+                weaponHolder.Find(data.soWeapon.weaponName).gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public DataWeapon GetDataWeaponByName(string weaponName)
+    {
+        foreach (DataWeapon dataWeapon in dataPlayer.dataWeapons)
+        {
+            if (dataWeapon.name == weaponName)
+            {
+                return dataWeapon;
+            }
+        }
+        return null;
+    }
     private void OnApplicationQuit()
     {
         SaveData();

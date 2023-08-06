@@ -274,7 +274,7 @@ Transform:
   m_GameObject: {fileID: 8085255919555072060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3.96, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8085255918100369444}
@@ -370,13 +370,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  extraSpeedMultiplier: 3
+  extraSpeedMultiplier: 7
   weaponHolder: {fileID: 0}
   autoShoot: 0
   isInMenu: 0
   sliderHP: {fileID: 0}
   hurtClip: {fileID: 8300000, guid: 021076935bb5033498cfb386d56a734f, type: 3}
-  pickupItemClip: {fileID: 0}
+  pickupItemClip: {fileID: 8300000, guid: 1b4811d5ba664cf4abbd7cf01ced5484, type: 3}
   audioMixerGroup: {fileID: 4339752897506746412, guid: 781d07d6790b721458e3a4411080fba4, type: 2}
   weapons: []
 --- !u!114 &1954011076
@@ -962,7 +962,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4364131533369057483, guid: 325366545cff86d4e811afc05c7b5a14, type: 3}
       propertyPath: m_Name
-      value: BigSpaceGun
+      value: Big Space Gun
       objectReference: {fileID: 0}
     - target: {fileID: 4364131533369057483, guid: 325366545cff86d4e811afc05c7b5a14, type: 3}
       propertyPath: m_IsActive
@@ -1036,11 +1036,11 @@ PrefabInstance:
       objectReference: {fileID: 4713410507377150235}
     - target: {fileID: 4364131533369057483, guid: e419970249297894fa59e0d4dc3465f0, type: 3}
       propertyPath: m_Name
-      value: AutoCannon
+      value: Auto Cannon
       objectReference: {fileID: 0}
     - target: {fileID: 4364131533369057483, guid: e419970249297894fa59e0d4dc3465f0, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4364131533369058102, guid: e419970249297894fa59e0d4dc3465f0, type: 3}
       propertyPath: m_RootOrder

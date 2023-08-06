@@ -22,4 +22,11 @@ public class Hp : MonoBehaviour, IPickable
         float rand = Random.Range(0.1f, 0.2f);
         rb.gravityScale = rand;
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("DeadZone"))
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }

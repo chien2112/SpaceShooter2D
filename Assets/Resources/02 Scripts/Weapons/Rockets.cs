@@ -7,32 +7,33 @@ public class Rockets : Weapon
     [SerializeField] Transform shootingPoint4;
     [SerializeField] Transform shootingPoint5;
     [SerializeField] Transform shootingPoint6;
-
-    protected override void Awake()
-    {
-        base.Awake();
-    }
     public void Shoot(int index)
     {         
         switch (index)
         {
             case 1:
-                ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint.position);
+                GameObject go = ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint.position);
+                go.GetComponent<Projectile>().Init(damage, bulletSpeed);
                 break;
             case 2:
-                ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint2.position);
+                GameObject go1 = ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint2.position);
+                go1.GetComponent<Projectile>().Init(damage, bulletSpeed);
                 break;
             case 3:
-                ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint3.position);
+                GameObject go2 = ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint3.position);
+                go2.GetComponent<Projectile>().Init(damage, bulletSpeed);
                 break;
             case 4:
-                ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint4.position);
+                GameObject go3 = ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint4.position);
+                go3.GetComponent<Projectile>().Init(damage, bulletSpeed);
                 break;
             case 5:
-                ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint5.position);
+                GameObject go4 = ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint5.position);
+                go4.GetComponent<Projectile>().Init(damage, bulletSpeed);
                 break;
             case 6:
-                ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint6.position);
+                GameObject go5 = ObjectPooling.GetGameObjectFromPool(weaponData.projectilePrefab, shootingPoint6.position);
+                go5.GetComponent<Projectile>().Init(damage, bulletSpeed);
                 break;
         }
         SoundManager.Instance.PlayClip(shootingClip, audioMixerGroup);

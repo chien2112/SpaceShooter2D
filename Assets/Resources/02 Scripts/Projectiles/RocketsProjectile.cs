@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class RocketsProjectile : Projectile
 {
-    protected override void Awake()
+    protected override void OnEnable()
     {
-        base.Awake();
-        rb = GetComponent<Rigidbody2D>();
-    }
-    public void OnEnable()
-    {
-        rb.velocity = Vector2.up * speed;
+        base.OnEnable();
         rb.gravityScale = 0;
     }
     private void Update()
@@ -19,8 +14,4 @@ public class RocketsProjectile : Projectile
         rb.gravityScale -= 3f*Time.deltaTime;
     }
 
-    public override void SelfDestruct()
-    {
-        gameObject.SetActive(false);
-    }
 }
