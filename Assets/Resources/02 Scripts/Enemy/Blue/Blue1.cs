@@ -6,7 +6,7 @@ public class Blue1 : EnemyBase
 {
     public override void DropItem()
     {
-        int rand = Random.Range(0, 4);
+        int rand = Random.Range(0, 30);
         float randX = Random.Range(-0.1f, 0.1f);
         float randY = Random.Range(-0.1f, 0.1f);
 
@@ -14,14 +14,10 @@ public class Blue1 : EnemyBase
 
         switch (rand)
         {
-            case 1:
+            case 10:
                 ObjectPooling.GetGameObjectFromPool(items[0], spawnPoint);
                 break;
-            case 2:
-                ObjectPooling.GetGameObjectFromPool(items[0], spawnPoint);
-                ObjectPooling.GetGameObjectFromPool(items[1], spawnPoint);
-                break;
-            case 3:
+            case 15:
                 foreach (var item in items)
                 {
                     ObjectPooling.GetGameObjectFromPool(item, spawnPoint);
@@ -31,7 +27,6 @@ public class Blue1 : EnemyBase
                 ObjectPooling.GetGameObjectFromPool(items[1], spawnPoint);
                 break;
         }
-
     }
 
 }

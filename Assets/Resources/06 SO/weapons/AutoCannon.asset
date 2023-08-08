@@ -17,10 +17,10 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2992165248105815452, guid: c3d0d26d9f595b54d9a61c9529bb9892, type: 3}
   weaponName: Auto Cannon
   fireRate: 1
-  damage: 18
+  damage: 13
   bulletSpeed: 10
-  fireRateMultiplier: 1.05
-  damageMultiplier: 1.1
-  maxLevel: 4
+  fireRateMultiplier: 0.25
+  damageMultiplier: 0.1
+  maxLevel: 6
   price: 0
-  upgradeCosts: 640000002c010000e8030000
+  upgradeCosts: 640000002c01000090010000f40100001f05000040080000

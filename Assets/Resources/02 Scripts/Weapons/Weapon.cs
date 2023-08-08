@@ -22,10 +22,21 @@ public abstract class Weapon : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         level = SavingSystem.Instance.GetDataWeaponByName(weaponData.weaponName).currentLevel;
-        fireRate = weaponData.fireRate * weaponData.fireRateMultiplier * level;
-        bulletSpeed = weaponData.bulletSpeed;
-        damage = weaponData.damage * weaponData.damageMultiplier * level;
-        anim.speed = fireRate;
+        if(level == 1)
+        {
+            fireRate = weaponData.fireRate;
+            damage = weaponData.damage;
+            anim.speed = fireRate;
+            bulletSpeed = weaponData.bulletSpeed;   
+        }
+        else
+        {
+            fireRate = weaponData.fireRate + weaponData.fireRate * weaponData.fireRateMultiplier * (level -1);
+            damage = weaponData.damage + weaponData.damage * weaponData.damageMultiplier * (level - 1);
+            anim.speed = fireRate;
+            bulletSpeed = weaponData.bulletSpeed;
+        }
+        
     }
     public void DoShoot()
     {

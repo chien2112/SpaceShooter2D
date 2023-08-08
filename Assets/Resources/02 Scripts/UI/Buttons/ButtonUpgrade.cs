@@ -14,6 +14,7 @@ public class ButtonUpgrade : ButtonBase
         _panel.SetActive(true);
         SetMusic();
         GameStateManager.Instance.SetState(_state);
+        GameTutorial.Instance.NextTutorial();
     }
     public void SetMusic()
     {

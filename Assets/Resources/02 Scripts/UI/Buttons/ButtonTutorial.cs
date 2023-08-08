@@ -7,5 +7,6 @@ public class ButtonTutorial : ButtonBase
     {
         base.ClickButton();
         _panel.SetActive(true);
+        GameTutorial.Instance.NextTutorial();
     }
 }

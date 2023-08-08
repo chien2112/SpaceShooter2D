@@ -1,4 +1,33 @@
 {
+    "isNewPlayer": true,
     "coin": 0,
-    "dataWeapons": []
+    "dataWeapons": [
+        {
+            "name": "Auto Cannon",
+            "soWeapon": {
+                "instanceID": 26302
+            },
+            "currentLevel": 1,
+            "isUnlocked": false,
+            "isEquipped": false
+        },
+        {
+            "name": "Big Space Gun",
+            "soWeapon": {
+                "instanceID": 26304
+            },
+            "currentLevel": 1,
+            "isUnlocked": false,
+            "isEquipped": false
+        },
+        {
+            "name": "Rockets",
+            "soWeapon": {
+                "instanceID": 26306
+            },
+            "currentLevel": 1,
+            "isUnlocked": false,
+            "isEquipped": false
+        }
+    ]
 }

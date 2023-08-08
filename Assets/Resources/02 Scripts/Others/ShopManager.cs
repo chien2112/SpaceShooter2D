@@ -11,16 +11,14 @@ public class ShopManager : Singleton<ShopManager>
     [SerializeField] private Transform upgradeBoard;
     private GameObject weaponShopTemplate;
     private TextMeshProUGUI txtCoin;
-    private int coin;
     private void Start()
     {
         Init();
     }
-    void Init()
+    public void Init()
     {
         txtCoin = FindGameObject.FindChildGameObjectByName(upgradeBoard, "txtCoin").GetComponent<TextMeshProUGUI>();
-        coin = SavingSystem.Instance.dataPlayer.coin;
-        txtCoin.text = coin.ToString();
+        UpdateCoinText();
 
         weaponShopTemplate = Resources.Load<GameObject>("01 Prefabs/Others/WeaponShopTemplate");
 
@@ -36,6 +34,10 @@ public class ShopManager : Singleton<ShopManager>
             {
                 Transform page = FindGameObject.FindChildGameObjectByName(upgradeBoard, ShopPageName.PageWeapon.ToString());
                 Transform shopContent = FindGameObject.FindChildGameObjectByName(page, "ShopContent");
+                foreach(Transform child in shopContent)
+                {
+                    Destroy(child.gameObject);
+                }
                 foreach (SOWeapon so in soWeapons)
                 {
                     GameObject template = Instantiate(weaponShopTemplate, shopContent);
@@ -47,8 +49,8 @@ public class ShopManager : Singleton<ShopManager>
     }
     public void UpdateCoinText()
     {
-        txtCoin.text = coin.ToString();
+        txtCoin.text = SavingSystem.Instance.dataPlayer.coin.ToString();
     }
-    
+
 
 }

@@ -15,6 +15,7 @@ public class ButtonClosePanelM : ButtonBase
         _panel.SetActive(false);
         SetMusic();
         GameStateManager.Instance.SetState(_state);
+        GameTutorial.Instance.NextTutorial();
     }
     public void SetMusic()
     {

@@ -17,10 +17,10 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2992165248105815452, guid: 2dc0927c69ae9a54787da58c60e0d124, type: 3}
   weaponName: Rockets
   fireRate: 1
-  damage: 14
+  damage: 10
   bulletSpeed: -1.7
-  fireRateMultiplier: 1.07
-  damageMultiplier: 1.1
-  maxLevel: 4
-  price: 200
-  upgradeCosts: 640000005e0100004c040000
+  fireRateMultiplier: 0.2
+  damageMultiplier: 0.1
+  maxLevel: 7
+  price: 500
+  upgradeCosts: c8000000f40100008a020000ee0200005203000040080000

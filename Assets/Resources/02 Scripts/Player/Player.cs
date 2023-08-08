@@ -35,7 +35,6 @@ public class Player : LivingEntity
         autoShoot = false;
         gameStateManager = GameStateManager.Instance;
         OnDeath += PlayerDie;
-        
     }
     
     protected override void Start()
@@ -45,11 +44,11 @@ public class Player : LivingEntity
     }
     private void Update()
     {
-        Pause();
         if (gameStateManager.GetState() == GameState.Pausing) return;
+        Move();
+        if (isInMenu) return;
         AutoShoot();
         Shoot();
-        Move();
     }
     void Move()
     {
@@ -61,7 +60,7 @@ public class Player : LivingEntity
     }
     void Shoot()
     {
-        if (Input.GetMouseButton(0) && !isInMenu)
+        if (Input.GetMouseButton(0))
         {
             foreach (Weapon wp in weapons)
             {
@@ -71,7 +70,7 @@ public class Player : LivingEntity
     }
     void AutoShoot()
     {
-        if (Input.GetKeyDown(KeyCode.A) && !isInMenu)
+        if (Input.GetKeyDown(KeyCode.A))
         {
             autoShoot = !autoShoot;
         }
@@ -84,20 +83,7 @@ public class Player : LivingEntity
             return;
         } 
     }
-    void Pause()
-    {
-        if (Input.GetKeyDown(KeyCode.P) && !isInMenu)
-        {        
-            if(gameStateManager.GetState() == GameState.Playing)
-            {
-                gameStateManager.SetState(GameState.Pausing);
-            }
-            else if (gameStateManager.GetState() == GameState.Pausing)
-            {
-                gameStateManager.SetState(GameState.Playing);
-            }
-        }       
-    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))

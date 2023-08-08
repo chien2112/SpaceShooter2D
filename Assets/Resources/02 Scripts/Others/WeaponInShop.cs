@@ -96,6 +96,7 @@ public class WeaponInShop : MonoBehaviour
         savingSystem.EquipWeapon(soWeapon.weaponName);
         btnEquip.gameObject.SetActive(false);
         btnUnequip.gameObject.SetActive(true);
+        GameTutorial.Instance.NextTutorial();
     }
     void ClickButtonUnequip()
     {
@@ -105,7 +106,7 @@ public class WeaponInShop : MonoBehaviour
     }
     void ClickButtonBuy()
     {
-        if(savingSystem.BuyWeapon(soWeapon.weaponName, soWeapon.price))
+        if (savingSystem.BuyWeapon(soWeapon.weaponName, soWeapon.price))
         {
             btnEquip.gameObject.SetActive(true);
             btnUnequip.gameObject.SetActive(false);
@@ -114,6 +115,7 @@ public class WeaponInShop : MonoBehaviour
             txtPrice.gameObject.SetActive(false);
             txtLevel.gameObject.SetActive(true);
             txtCost.gameObject.SetActive(true);
+            ShopManager.Instance.UpdateCoinText();
         }
     }
     void ClickButtonUpgrade()
@@ -131,9 +133,10 @@ public class WeaponInShop : MonoBehaviour
             {
                 txtCost.text = "Cost: " + dataWeapon.soWeapon.upgradeCosts[dataWeapon.currentLevel-1].ToString();
                 txtLevel.text = "Level: " + dataWeapon.currentLevel.ToString();
+                ShopManager.Instance.UpdateCoinText();
             }
         }
     }
-
+    
 
 }

@@ -10,11 +10,13 @@ public class PanelResult : MonoBehaviour
     public TextMeshProUGUI txtCoin;
     public Color colorWin;
     public Color colorLose;
+
     private void Awake()
     {
-        foreach(Transform t in transform)
+
+        foreach (Transform t in transform)
         {
-            if(t.name == "txtResult")
+            if (t.name == "txtResult")
             {
                 txtResult = t.GetComponent<TextMeshProUGUI>();
             }

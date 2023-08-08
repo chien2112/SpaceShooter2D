@@ -9,8 +9,16 @@ public class ButtonPlay : ButtonBase
     protected override void ClickButton()
     {
         base.ClickButton();
-        _panel.SetActive(true);
-        GameStateManager.Instance.SetState(_state);
-        SavingSystem.Instance.SaveData();
+        if (PlayCheck.Instance.Check())
+        {
+            _panel.SetActive(true);
+            GameStateManager.Instance.SetState(_state);
+            SavingSystem.Instance.dataPlayer.isNewPlayer = false;
+            SavingSystem.Instance.SaveData();
+        }
+        else
+        {
+            PlayCheck.Instance.Notification();
+        }
     }
 }

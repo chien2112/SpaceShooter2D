@@ -11,10 +11,11 @@ TagManager:
   - EnemyBullet
   - SoundManager
   - LevelManager
-  - PanelResult
   - Item
   - PlayerMenu
   - UpgradeBoard
+  - ArrowTutorialHolder
+  - BlockHolder
   layers:
   - Default
   - TransparentFX

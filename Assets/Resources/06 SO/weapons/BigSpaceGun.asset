@@ -17,10 +17,10 @@ MonoBehaviour:
   projectilePrefab: {fileID: 2992165248105815452, guid: f15fe4c75357da64dafd2c51f5cba01c, type: 3}
   weaponName: Big Space Gun
   fireRate: 1
-  damage: 50
+  damage: 30
   bulletSpeed: 6
-  fireRateMultiplier: 1.1
-  damageMultiplier: 1.08
-  maxLevel: 4
-  price: 100
-  upgradeCosts: 9600000090010000b0040000
+  fireRateMultiplier: 0.5
+  damageMultiplier: 0.25
+  maxLevel: 7
+  price: 150
+  upgradeCosts: f40100006b020000cf02000033030000970300001f050000

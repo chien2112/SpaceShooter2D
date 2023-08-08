@@ -36,18 +36,20 @@ public class SavingSystem : Singleton<SavingSystem>
     public void LoadData()
     {
         string json = File.ReadAllText(path);
-        if (json != null)
+        if (json != "")
         {
             dataPlayer = JsonUtility.FromJson<DataPlayer>(json);
         }
         else
         {
-            InitDataWeapon();
+            //InitDataWeapon();
             SaveData();
         }
+
     }
     void InitDataWeapon()
     {
+        dataPlayer.isNewPlayer = true;
         foreach (SOWeapon soWeapon in soWeapons)
         {
             DataWeapon dataWeapon = new DataWeapon();
@@ -144,4 +146,22 @@ public class SavingSystem : Singleton<SavingSystem>
     {
         SaveData();
     }
+
+    #region TESTING
+    public void MaximumCoin()
+    {
+        dataPlayer.coin = 999999;
+        ShopManager.Instance.UpdateCoinText();
+    }
+    public void ResetData()
+    {
+        dataPlayer.dataWeapons.Clear();
+        dataPlayer.coin = 0;
+        InitDataWeapon();
+        SaveData();
+        LoadData();
+        LoadWeapon();
+        ShopManager.Instance.Init();
+    }
+    #endregion
 }
