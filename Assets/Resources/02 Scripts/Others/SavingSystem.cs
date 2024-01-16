@@ -42,7 +42,6 @@ public class SavingSystem : Singleton<SavingSystem>
         }
         else
         {
-            //InitDataWeapon();
             SaveData();
         }
 

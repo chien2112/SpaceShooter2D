@@ -31,5 +31,4 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         else
             _instance = this.GetComponent<T>();
     }
-
 }
